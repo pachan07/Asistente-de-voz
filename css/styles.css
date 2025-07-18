@@ -1,0 +1,196 @@
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Fondo animado canvas */
+#background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Contenido centrado */
+.contenido-principal {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.contenido-principal h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+  margin-bottom: 12px;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+
+.mensaje-luz {
+  font-size: 1.1rem;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px 24px;
+  border-radius: 24px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  backdrop-filter: blur(8px);
+  animation: fadeUp 2s ease 0.5s forwards;
+  opacity: 0;
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#voice-button {
+  position: fixed;
+  bottom: 120px; /* <-- antes era 40px */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  animation: rotate 4s linear infinite;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+@keyframes rotate {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%   { transform: translateX(-50%) scale(1); }
+  30%  { transform: translateX(-50%) scale(1.15); }
+  50%  { transform: translateX(-50%) scale(0.9); }
+  70%  { transform: translateX(-50%) scale(1.05); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+#voice-button.bounce {
+  animation: bounce 0.5s ease;
+}
+#voice-button:hover {
+  animation: bounce 0.5s ease;
+}
+#voice-button.escuchando {
+  box-shadow: 0 0 20px 8px rgba(0, 198, 255, 0.4);
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(0, 198, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px 10px rgba(0, 198, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px 2px rgba(0, 198, 255, 0.4);
+  }
+}
+
+/* Indicador de estado "Pensando..." */
+.estado-luz {
+  position: fixed;
+  bottom: 210px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  animation: aparecerDesaparecer 1.2s infinite;
+  z-index: 11;
+}
+
+@keyframes aparecerDesaparecer {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Responsive: Ajuste en móviles */
+@media (max-width: 600px) {
+  .contenido-principal h1 {
+    font-size: 1.8rem;
+  }
+
+  .mensaje-luz {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  #voice-button {
+    width: 60px;
+    height: 60px;
+    bottom: 100px;
+  }
+
+  .estado-luz {
+    bottom: 190px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Estilo visual cuando Luz está activa */
+#voice-button.activo {
+  background: linear-gradient(135deg, #427fb8, #119e97);
+  box-shadow: 0 0 20px 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Opcional: si quieres cambiar el cursor */
+#voice-button.activo:hover {
+  cursor: pointer;
+}
+
+.mensaje-flotante {
+  position: fixed;
+  bottom: 210px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 11;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
