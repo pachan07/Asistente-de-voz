@@ -120,7 +120,7 @@ html, body {
   }
 }
 
-/* Indicador de estado "Pensando..." */
+
 .estado-luz {
   position: fixed;
   bottom: 210px;
@@ -140,7 +140,7 @@ html, body {
   100% { opacity: 0.3; }
 }
 
-/* Responsive: Ajuste en móviles */
+
 @media (max-width: 600px) {
   .contenido-principal h1 {
     font-size: 1.8rem;
@@ -163,13 +163,13 @@ html, body {
   }
 }
 
-/* Estilo visual cuando Luz está activa */
+
 #voice-button.activo {
   background: linear-gradient(135deg, #427fb8, #119e97);
   box-shadow: 0 0 20px 8px rgba(255, 0, 0, 0.3);
 }
 
-/* Opcional: si quieres cambiar el cursor */
+
 #voice-button.activo:hover {
   cursor: pointer;
 }

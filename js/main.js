@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vapi.stop();
       }
 
-      // ⚠️ Aseguramos visualmente el cierre (por si no responde)
+      
       setTimeout(() => {
         if (estaHablando) {
           console.log("🛑 Forzando cierre visual");
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Fondo degradado animado
+
 const canvas = document.getElementById("background-canvas");
 const ctx = canvas.getContext("2d");
 

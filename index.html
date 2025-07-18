@@ -8,27 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Fondo degradado -->
+
   <canvas id="background-canvas"></canvas>
 
-  <!-- Contenido principal -->
+
   <div class="contenido-principal">
     <h1>Leer es Conocimiento</h1>
     <p class="mensaje-luz">Haz clic para hablar con <strong>Luz</strong>, tu guía lectora.</p>
   </div>
 
-  <!-- Botón flotante -->
+
   <button id="voice-button" aria-label="Hablar con Luz"></button>
 
-  <!-- Mensaje flotante cuando Luz está activa -->
+
 <div id="mensaje-flotante" class="mensaje-flotante" style="display: none;">
   Haz clic para finalizar
 </div>
 
-  <!-- Indicador "pensando..." -->
+
   <div class="estado-luz" id="estado-luz" style="display: none;">...</div>
 
-  <!-- Widget del asistente de voz Luz -->
+
   <vapi-widget
     id="vapi"
     assistant-id="ea5e62b1-201b-4292-af18-6b2bb412fcfd"
@@ -37,7 +37,7 @@
     style="display: none;">
   </vapi-widget>
 
-  <!-- Scripts -->
+
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web@latest" defer></script>
 </body>
